@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -14,7 +15,111 @@ import java.time.Period;
 public class main {
     public static void main(String[] args) {
 
+        Scanner in = new Scanner(System.in);
+        System.out.println(
+                "1. Wende 1\n" +
+                "2. Wende2\n" +
+                "3. Wende3\n" +
+                "4. Nati1\n" +
+                "5. Nati2\n" +
+                "6. Nati3\n" +
+                "7. Dave1\n" +
+                "8. Dave2\n" +
+                "9. Dave3\n" +
+                "10. Zola1\n" +
+                "11. Zola2\n" +
+                "12. Zola3\n" +
+                "13. Miky1\n" +
+                "14. Miky2\n" +
+                "15. Miky3\n");
+        System.out.println("Enter the number you want to run the function of or exit to quit: ");
+        while(true){
+            String input = in.nextLine();
+            int intInput = 0;
+            if(input.equalsIgnoreCase("exit")){
+                System.out.println("Thank you for using our system");
+                break;
+            }
+            try {
+                intInput = Integer.parseInt(input);
+            }catch (Exception e){
+                System.out.println("Enter only numbers please: ");
+                continue;
+
+            }
+            switch (intInput){
+//                ---Wendemagegn Kebede---
+                case 1:
+                    System.out.println("1");
+                    canceledReservationsCount.apply(null,null);
+                    break;
+                case 2:
+                    averagePerNightPriceInACity.apply(null,null);
+                    break;
+                case 3:
+                    topKCitiesWithTheHighestNumberOfGuest.apply(null,null, null);
+                    break;
+//                ---------------
+//                ---Natnael Teshome---
+                case 4:
+                    getNumberOfPropertiesInACity.apply(null,null);
+                    break;
+                case 5:
+                    topKGuestsWithHighestReservation.apply(null,null);
+                    break;
+                case 6:
+                    topKHostsWithHighestProperty.apply(null,null);
+                    break;
+//                ---------------
+//                ---Dawit Demelash---
+                case 7:
+                    some();
+//                    hostAverageAgeInACountry.apply(null);
+                    break;
+                case 8:
+                    some();
+//                    hostAverageAgeInACountry.apply(null);
+                    break;
+                case 9:
+                    some();
+//                    hostAverageAgeInACountry.apply(null);
+                    break;
+//                ---------------
+//                ---Zelalem Belayneh---
+                case 10:
+                    some();
+//                    hostAverageAgeInACountry.apply(null);
+                    break;
+                case 11:
+                    some();
+//                    hostAverageAgeInACountry.apply(null);
+                    break;
+                case 12:
+                    some();
+//                            .apply(null);
+                    break;
+//                ---------------
+//                ---Michael Demewoz---
+                case 13:
+                    getTheHighestPayment.apply(null, null);
+                    break;
+                case 14:
+                    getHighestPriceInTheWorld.apply(null);
+                    break;
+                case 15:
+                    hostAverageAgeInACountry.apply(null);
+                    break;
+                default:
+                    System.out.println("Enter a valid number: ");
+                    break;
+
+
+
+            }
+        }
     }
+
+    static void some(){}
 
     static Function<Country, List<Host>> getHost = (cou) ->
             Stream.of(cou)
@@ -46,7 +151,8 @@ public class main {
                     .stream()
                     .flatMap(property -> property.getReservations().stream())
                     .filter(reservation -> reservation.getStartDate().getYear() == year )
-                    .collect(Collectors.groupingBy(Reservation::getProperty, Collectors.summingDouble(reservation -> reservation.
+                    .collect(Collectors.groupingBy(Reservation::getProperty,
+                            Collectors.summingDouble(reservation -> reservation.
                             getProperty().
                             getPricePerNight()*
                             (Period.between(reservation.getStartDate(),reservation.getStartDate()).getDays())
