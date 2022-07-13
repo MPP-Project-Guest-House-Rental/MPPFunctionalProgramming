@@ -71,7 +71,7 @@ public class main {
                     topKHostsWithHighestProperty.apply(null,null);
                     break;
 //                ---------------
-//                ---Dawit Demelash---
+//                ---Dawit Demelash---somecode
                 case 7:
                     some();
 //                    hostAverageAgeInACountry.apply(null);
