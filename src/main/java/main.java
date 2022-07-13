@@ -2,10 +2,7 @@ import Model.*;
 import Model.Enum.ReservationStatusEnum;
 
 import java.time.LocalDate;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -269,6 +266,66 @@ static BiFunction<Country,Long, List<Long>> topKHostsWithHighestProperty = (coun
                 .map(e -> e.getKey().getName())
                 .limit(k)
                 .collect(Collectors.toList());
+
+
+
+    /**Helper Method Dave*/
+    static Function<Country, DoubleSummaryStatistics>averagePerNightPriceInACountry = (country) ->
+            getPropertyFromHost.apply(country)
+                    .stream()
+                    .mapToDouble(property -> property.getPricePerNight())
+                    .summaryStatistics();
+
+
+
+
+/**Dave 8 - Country that have The Highest average price per day in the world*/
+
+    static Function<Country, Optional<Double>> highestAveragePriceInTheWorld= (country) ->
+            Stream.of(country)
+                    .flatMap(country1 -> country1.getCities().stream())
+                    .flatMap(city1 -> city1.getUsers().stream())
+                    .flatMap(user -> user.getRoles().stream())
+                    .filter(role -> role instanceof Guest)
+                    .map(role -> (Guest) role)
+                    .flatMap(guest -> guest.getReservations().stream())
+                    .collect(Collectors.groupingBy(reservation -> reservation.getGuest().getUser().getCity().getCountry(),Collectors.summingDouble(res->averagePerNightPriceInACountry.apply(country).getAverage())))
+                    .entrySet()
+                    .stream()
+                    .sorted((s1,s2)->(int)(s2.getValue()-s1.getValue()))
+                    .findFirst()
+                    .map(higestPrice->higestPrice.getValue());
+
+/**Dave 9  - Country that have The Lowest average price per day in the world*/
+
+
+    static Function<Country, Optional<Double>> lowestAveragePriceInTheWorld= (country) ->
+            Stream.of(country)
+                    .flatMap(country1 -> country1.getCities().stream())
+                    .flatMap(city1 -> city1.getUsers().stream())
+                    .flatMap(user -> user.getRoles().stream())
+                    .filter(role -> role instanceof Guest)
+                    .map(role -> (Guest) role)
+                    .flatMap(guest -> guest.getReservations().stream())
+                    .collect(Collectors.groupingBy(reservation -> reservation.getGuest().getUser().getCity().getCountry(),Collectors.summingDouble(res->averagePerNightPriceInACountry.apply(country).getAverage())))
+                    .entrySet()
+                    .stream()
+                    .sorted((s1,s2)->(int)(s1.getValue()-s2.getValue()))
+                    .findFirst()
+                    .map(lowestPrice->lowestPrice.getValue());
+
+    /**Dave 11 Gust average age in the Country*/
+    static Function<Country, Double> guestAverageAgeInACountry = (country) ->
+            Stream.of(country)
+                    .flatMap(country1 -> country1.getCities().stream())
+                    .flatMap(city -> city.getUsers().stream())
+                    .flatMap(user -> user.getRoles().stream())
+                    .filter(role -> role instanceof Guest)
+                    .map(role -> (Guest) role)
+                    .mapToInt(guest -> guest.getUser().getAge())
+                    .summaryStatistics()
+                    .getAverage();
+
 
 
 
