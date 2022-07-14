@@ -18,7 +18,7 @@ public class WendeTest {
     List<City> cities;
     List<Payment> payments;
 
-    City AddisAbaba,FairField,DC,London,Paris;
+    City         Bucharest,Rochester,Lakewood,SanAntonio,Philadelphia,Denver,Quebec      ,SaltLakeity ,Lisbon   ,   ElPaso     , Newrleans  , Omaha   ,    Richmond  ,  Wien   ,     Bridgeport , SantaAna ,   Honolulu  ,  MorenoValley,Milwaukee ,  Fullerton;
     Country USA, Canada;
     AppUser Caydence,Carter,Hank,Nate,Chuck,Phillip,Noah,Alexander,Nick,Sabina,Hank1,Barney,Brad,Julian,Isabel,Hope,Candice,Tyson,Sarah,Hailey;
     AppUser Maia,Leroy,Fred,Martin,Ada,Clint,Chloe,Evelynn,Isabella,Bob,Bart,Lily,Carter1,Lexi,Anthony,Ruth,Tara,Anthony1,Benny, Hanna;
@@ -76,6 +76,26 @@ public class WendeTest {
 
         //Cities
 
+        Bucharest=TestFactory.createCity("Bucharest");
+        Rochester=TestFactory.createCity("Rochester");
+        Lakewood=TestFactory.createCity("Lakewood" );
+        SanAntonio=TestFactory.createCity("San Antonio");
+        Philadelphia=TestFactory.createCity("Philadelphia");
+        Denver=TestFactory.createCity("Denver");
+        Quebec=TestFactory.createCity("Quebec");
+        SaltLakeity=TestFactory.createCity("Salt Lake City");
+        Lisbon=TestFactory.createCity("Lisbon");
+        ElPaso=TestFactory.createCity("El Paso");
+        Newrleans=TestFactory.createCity("New Orleans");
+        Omaha=TestFactory.createCity("Omaha");
+        Richmond=TestFactory.createCity("Richmond");
+        Wien=TestFactory.createCity("Wien");
+        Bridgeport=TestFactory.createCity("Bridgeport");
+        SantaAna=TestFactory.createCity("Santa Ana");
+        Honolulu=TestFactory.createCity("Honolulu");
+        MorenoValley=TestFactory.createCity("Moreno Valley");
+        Milwaukee=TestFactory.createCity("Milwaukee");
+        Fullerton=TestFactory.createCity("Fullerton");
 
  }
 
