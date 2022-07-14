@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 public class WendeTest {
@@ -18,7 +19,7 @@ public class WendeTest {
     List<City> cities;
     List<Payment> payments;
 
-    City         Bucharest,Rochester,Lakewood,SanAntonio,Philadelphia,Denver,Quebec      ,SaltLakeity ,Lisbon   ,   ElPaso     , Newrleans  , Omaha   ,    Richmond  ,  Wien   ,     Bridgeport , SantaAna ,   Honolulu  ,  MorenoValley,Milwaukee ,  Fullerton;
+    City  Bucharest,Rochester,Lakewood,SanAntonio,Philadelphia,Denver,Quebec,SaltLakeity ,Lisbon, ElPaso ,Newrleans ,Omaha  ,  Richmond  ,  Wien   ,  Bridgeport , SantaAna ,   Honolulu  ,  MorenoValley,Milwaukee ,  Fullerton;
     Country USA, Canada;
     AppUser Caydence,Carter,Hank,Nate,Chuck,Phillip,Noah,Alexander,Nick,Sabina,Hank1,Barney,Brad,Julian,Isabel,Hope,Candice,Tyson,Sarah,Hailey;
     AppUser Maia,Leroy,Fred,Martin,Ada,Clint,Chloe,Evelynn,Isabella,Bob,Bart,Lily,Carter1,Lexi,Anthony,Ruth,Tara,Anthony1,Benny, Hanna;
@@ -75,6 +76,7 @@ public class WendeTest {
         Hanna	    =TestFactory.createGuest("Hanna	   ","Richards");
 
         //Cities
+        cities = Arrays.asList( Bucharest,Rochester,Lakewood,SanAntonio,Philadelphia,Denver,Quebec,SaltLakeity ,Lisbon, ElPaso ,Newrleans ,Omaha  ,  Richmond  ,  Wien   ,  Bridgeport , SantaAna ,   Honolulu  ,  MorenoValley,Milwaukee ,  Fullerton);
 
         Bucharest=TestFactory.createCity("Bucharest");
         Rochester=TestFactory.createCity("Rochester");
