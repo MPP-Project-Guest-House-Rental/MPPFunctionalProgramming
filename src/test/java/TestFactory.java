@@ -6,6 +6,7 @@ import Model.Enum.Type;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TestFactory {
@@ -25,9 +26,8 @@ public class TestFactory {
 
     public static AppUser createGuest(
             String firstName,
-            String lastName,
-            String username,
-            String password){
+            String lastName
+          ){
         AppUser appUser = new AppUser();
         appUser.setRoles(new ArrayList<>());
         Guest guest = new Guest();
@@ -35,16 +35,13 @@ public class TestFactory {
         appUser.getRoles().add(guest);
         appUser.setFirstName(firstName);
         appUser.setLastName(lastName);
-        appUser.setUserName(username);
-        appUser.setPassword(password);
         return appUser;
     }
 
     public static AppUser createHost(
             String firstName,
-            String lastName,
-            String username,
-            String password){
+            String lastName
+            ){
         AppUser appUser = new AppUser();
         appUser.setRoles(new ArrayList<>());
         Guest host = new Guest();
@@ -52,8 +49,6 @@ public class TestFactory {
         appUser.getRoles().add(host);
         appUser.setFirstName(firstName);
         appUser.setLastName(lastName);
-        appUser.setUserName(username);
-        appUser.setPassword(password);
         return appUser;
     }
 
@@ -70,7 +65,8 @@ public class TestFactory {
         return payment;
     }
 
-    public static Property property(
+
+    public static Property creatProperty(
             String title,
             Double pricePerNight,
             Integer capacity
@@ -84,5 +80,12 @@ public class TestFactory {
         property.setType(Type.randomType());
         return property;
     }
+
+    public static Country assignCityToCountry(List<City> cities, Country country){
+        country.setCities(cities);
+        return country;
+
+    }
+
 
 }
