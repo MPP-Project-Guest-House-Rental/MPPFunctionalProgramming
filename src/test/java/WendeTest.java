@@ -71,7 +71,7 @@ public class WendeTest {
         Anthony	    =TestFactory.createGuest("Anthony	","Vangness");
         Ruth	    =TestFactory.createGuest("Ruth	   ","Bright");
         Tara	    =TestFactory.createGuest("Tara	   ","Murray");
-        Anthony1	    =TestFactory.createGuest("Anthony","Bright");
+        Anthony1	=TestFactory.createGuest("Anthony","Bright");
         Benny	    =TestFactory.createGuest("Benny	   ","Olson");
         Hanna	    =TestFactory.createGuest("Hanna	   ","Richards");
 
@@ -99,7 +99,29 @@ public class WendeTest {
         Milwaukee=TestFactory.createCity("Milwaukee");
         Fullerton=TestFactory.createCity("Fullerton");
 
- }
+        Bucharest            .setCountry(USA);
+        Rochester            .setCountry(USA);
+        Lakewood             .setCountry(USA);
+        SanAntonio           .setCountry(USA);
+        Philadelphia         .setCountry(USA);
+        Denver               .setCountry(USA);
+        Quebec               .setCountry(USA);
+        SaltLakeity          .setCountry(USA);
+        Lisbon               .setCountry(USA);
+        ElPaso               .setCountry(USA);
+        Newrleans            .setCountry(USA);
+        Omaha                .setCountry(USA);
+        Richmond             .setCountry(USA);
+        Wien                 .setCountry(USA);
+        Bridgeport           .setCountry(USA);
+        SantaAna             .setCountry(USA);
+        Honolulu             .setCountry(USA);
+        MorenoValley         .setCountry(USA);
+        Milwaukee            .setCountry(USA);
+        Fullerton            .setCountry(USA);
+
+
+    }
 
     @Test
     public void testFun1(){
