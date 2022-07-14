@@ -20,6 +20,7 @@ public class DaveTest {
 
     Country Ethiopia,UnitedStates,Canada,UnitedKingdom,France;
 
+
     @Before
     public void setUp() {
         //Creat Country
@@ -29,6 +30,5 @@ public class DaveTest {
         UnitedKingdom = TestFactory.createCountry("UnitedKingdom", "UK");
         France = TestFactory.createCountry("France", "FRA");
     }
-
 
 }

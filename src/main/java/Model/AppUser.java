@@ -15,9 +15,9 @@ public class AppUser {
 
     private String lastName;
 
-    private String userName;
 
-    private String password;
+
+
 
     private Account account;
     private City city;
@@ -25,24 +25,22 @@ public class AppUser {
     private Address address;
     private int age;
     private Gender gender;
-    public AppUser(String firstName, String userName) {
+    public AppUser(String firstName) {
         this.firstName = firstName;
-        this.userName = userName;
+
 
     }
 
     public AppUser(String firstName,
                    String lastName,
-                   String userName,
+
                    ArrayList<Role> roles,
-                   String password,
+
                    Address address,
                    Account account) {
         this.firstName = firstName;
         this.roles = roles;
         this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
         this.address = address;
         this.account = account;
     }
@@ -95,20 +93,9 @@ public class AppUser {
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public AppUser(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public String getLastName() {
