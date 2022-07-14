@@ -6,6 +6,7 @@ import Model.Enum.Type;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TestFactory {
@@ -25,7 +26,8 @@ public class TestFactory {
 
     public static AppUser createGuest(
             String firstName,
-            String lastName){
+            String lastName
+          ){
         AppUser appUser = new AppUser();
         appUser.setRoles(new ArrayList<>());
         Guest guest = new Guest();
@@ -38,7 +40,8 @@ public class TestFactory {
 
     public static AppUser createHost(
             String firstName,
-            String lastName){
+            String lastName
+            ){
         AppUser appUser = new AppUser();
         appUser.setRoles(new ArrayList<>());
         Guest host = new Guest();
@@ -62,6 +65,7 @@ public class TestFactory {
         return payment;
     }
 
+
     public static Property creatProperty(
             String title,
             Double pricePerNight,
@@ -76,5 +80,12 @@ public class TestFactory {
         property.setType(Type.randomType());
         return property;
     }
+
+    public static Country assignCityToCountry(List<City> cities, Country country){
+        country.setCities(cities);
+        return country;
+
+    }
+
 
 }

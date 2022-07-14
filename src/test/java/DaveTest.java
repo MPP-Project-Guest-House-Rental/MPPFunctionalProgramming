@@ -33,7 +33,6 @@ public class DaveTest {
     Property Parp1,Parp2,Parp3,Parp4,Parp5,Parp6;
     Property torp1,torp2,torp3,torp4,torp5;
 
-
     @Before
     public void setUp() {
         //Creat Country
@@ -148,21 +147,5 @@ public class DaveTest {
 
     }
     //Creat Property
-
-
-//    public static Property property(
-//            String title,
-//            Double pricePerNight,
-//            Integer capacity
-//    ){
-//        Property property = new Property();
-//        property.setTitle(title);
-//        property.setCapacity(capacity);
-//        property.setPricePerNight(pricePerNight);
-//        property.setApprovedStatus(ApprovedStatus.status());
-//        property.setAvailabiltyStatus(true);
-//        property.setType(Type.randomType());
-//        return property;
-//    }
 
 }
