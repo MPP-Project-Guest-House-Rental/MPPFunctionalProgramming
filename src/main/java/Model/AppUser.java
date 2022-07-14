@@ -15,7 +15,11 @@ public class AppUser {
 
     private String lastName;
 
+    public AppUser(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
 
+    }
 
 
 
@@ -25,11 +29,7 @@ public class AppUser {
     private Address address;
     private int age;
     private Gender gender;
-    public AppUser(String firstName) {
-        this.firstName = firstName;
 
-
-    }
 
     public AppUser(String firstName,
                    String lastName,
@@ -93,10 +93,7 @@ public class AppUser {
         this.address = address;
     }
 
-    public AppUser(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+
 
     public String getLastName() {
         return lastName;
