@@ -25,7 +25,7 @@ public class DaveTest {
     AppUser NatiH,DaveH,WondeH,MikyH,ZolaH,MerishH;
     AppUser NahomG,DagiG,NehemiaG,DerwG,FiyoG,BetiG;
 
-    Reservation r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12;
+    Reservation r1,r2,r3,r4,r5,r6;
     Property Addp1,Addp2,Addp3,Addp4,Addp5,Addp6,Addp7;
     Property Faip1,Faip2,Faip3,Faip4,Faip5,Faip6,Faip7,Faip8;
     Property Dcp1,Dcp2,Dcp3;
@@ -55,28 +55,28 @@ public class DaveTest {
         cities = Arrays.asList(AddisAbaba, FairField, DC, London, Paris, toronto);
 
         //creat HostAppUser
-        NatiH=TestFactory.createHost("NatiH","Teshome");
-        DaveH=TestFactory.createHost("DaveH","Demelash");
-        WondeH=TestFactory.createHost("WondeH","Kebe");
-        MikyH=TestFactory.createHost("MikyH","Demeoz");
-        ZolaH=TestFactory.createHost("ZolaH","Belayneh");
-        MerishH=TestFactory.createHost("MerishH","Yonas");
-
-        hosts=Arrays.asList(NatiH,DaveH,WondeH,MikyH,ZolaH,MerishH);
-
-
-
-
-        //Creat GustAppUser
-
-        NahomG=TestFactory.createGuest("NahomG","Nahom");
-        DagiG=TestFactory.createGuest("DagiG","Henok");
-        NehemiaG=TestFactory.createGuest("NehemiaG","Wondeemu");
-        DerwG=TestFactory.createGuest("DerwG","Bereket");
-        FiyoG=TestFactory.createGuest("FiyoG","Belay");
-        BetiG=TestFactory.createGuest("BetiG","Solomon");
-
-        guests=Arrays.asList(NatiH,DagiG,NehemiaG,DerwG,FiyoG,BetiG);
+//        NatiH=TestFactory.createHost("NatiH","Teshome");
+//        DaveH=TestFactory.createHost("DaveH","Demelash");
+//        WondeH=TestFactory.createHost("WondeH","Kebe");
+//        MikyH=TestFactory.createHost("MikyH","Demeoz");
+//        ZolaH=TestFactory.createHost("ZolaH","Belayneh");
+//        MerishH=TestFactory.createHost("MerishH","Yonas");
+//
+//        hosts=Arrays.asList(NatiH,DaveH,WondeH,MikyH,ZolaH,MerishH);
+//
+//
+//
+//
+//        //Creat GustAppUser
+//
+//        NahomG=TestFactory.createGuest("NahomG","Nahom");
+//        DagiG=TestFactory.createGuest("DagiG","Henok");
+//        NehemiaG=TestFactory.createGuest("NehemiaG","Wondeemu");
+//        DerwG=TestFactory.createGuest("DerwG","Bereket");
+//        FiyoG=TestFactory.createGuest("FiyoG","Belay");
+//        BetiG=TestFactory.createGuest("BetiG","Solomon");
+//
+//        guests=Arrays.asList(NatiH,DagiG,NehemiaG,DerwG,FiyoG,BetiG);
 
 
         //create Reservation
@@ -86,13 +86,7 @@ public class DaveTest {
         r4=TestFactory.createReservation(6l,2022);
         r5=TestFactory.createReservation(7l,2022);
         r6=TestFactory.createReservation(8l,2022);
-        r7=TestFactory.createReservation(3l,2022);
-        r8=TestFactory.createReservation(4l,2022);
-        r9=TestFactory.createReservation(5l,2022);
-        r10=TestFactory.createReservation(6l,2022);
-        r11=TestFactory.createReservation(7l,2022);
-        r12=TestFactory.createReservation(8l,2022);
-        reservations=Arrays.asList(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12);
+        reservations=Arrays.asList(r1,r2,r3,r4,r5,r6);
 
         //Creat Property
 
@@ -104,6 +98,7 @@ public class DaveTest {
         Addp5=TestFactory.creatProperty("Addp5",88.2,1);
         Addp6=TestFactory.creatProperty("Addp6",50.6,7);
         Addp7=TestFactory.creatProperty("Addp7",6.8,6);
+
 
         Faip1=TestFactory.creatProperty("Faip1",36.5,6);
         Faip2=TestFactory.creatProperty("Faip2",23.8,4);

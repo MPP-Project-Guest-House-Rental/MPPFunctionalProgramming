@@ -1,5 +1,6 @@
 import Model.*;
 import Model.Enum.ApprovedStatus;
+import Model.Enum.Gender;
 import Model.Enum.Type;
 
 
@@ -26,8 +27,11 @@ public class TestFactory {
 
     public static AppUser createGuest(
             String firstName,
-            String lastName
-          ){
+            String lastName,
+            int age,
+            Gender gender,
+            City city
+    ){
         AppUser appUser = new AppUser();
         appUser.setRoles(new ArrayList<>());
         Guest guest = new Guest();
@@ -35,20 +39,29 @@ public class TestFactory {
         appUser.getRoles().add(guest);
         appUser.setFirstName(firstName);
         appUser.setLastName(lastName);
+        appUser.setAge(age);
+        appUser.setGender(gender);
+        appUser.setCity(city);
         return appUser;
     }
 
     public static AppUser createHost(
             String firstName,
-            String lastName
-            ){
+            String lastName,
+            int age,
+            Gender gender,
+            City city
+    ){
         AppUser appUser = new AppUser();
         appUser.setRoles(new ArrayList<>());
-        Guest host = new Guest();
+        Host host = new Host();
         host.setUser(appUser);
         appUser.getRoles().add(host);
         appUser.setFirstName(firstName);
         appUser.setLastName(lastName);
+        appUser.setAge(age);
+        appUser.setGender(gender);
+        appUser.setCity(city);
         return appUser;
     }
 
@@ -57,6 +70,16 @@ public class TestFactory {
         LocalDate baseTime = LocalDate.now().withYear(year);
         reservation.setStartDate(baseTime);
         reservation.setEndDate(baseTime.plusDays(dayDiff));
+        return reservation;
+    }
+
+    static public Reservation assignReservation(AppUser person,Property property,Reservation reservation){
+        Guest guest=person.getRoles().stream().filter(r->r instanceof Guest).map(r->(Guest)r).findFirst().get();
+        property.getReservations().add(reservation);
+        guest.getReservations().add(reservation);
+        reservation.setGuest(guest);
+        reservation.setProperty(property);
+
         return reservation;
     }
 
@@ -78,6 +101,13 @@ public class TestFactory {
         property.setApprovedStatus(ApprovedStatus.status());
         property.setAvailabiltyStatus(true);
         property.setType(Type.randomType());
+        return property;
+    }
+
+    static public Property assignProperty(AppUser person,Property property){
+        Host host=person.getRoles().stream().filter(r->r instanceof Host).map(r->(Host)r).findFirst().get();
+        host.getProperties().add(property);
+        property.setHost(host);
         return property;
     }
 

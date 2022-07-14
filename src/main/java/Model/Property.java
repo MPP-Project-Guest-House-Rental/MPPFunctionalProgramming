@@ -3,6 +3,7 @@ package Model;
 import Model.Enum.ApprovedStatus;
 import Model.Enum.Type;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,6 +30,10 @@ public class Property {
     private Host host;
 
     private List<Reservation> reservations;
+
+    public Property(){
+        reservations = new ArrayList<>();
+    }
     public Property(String title,
                     Type type,
                     String description,
@@ -49,8 +54,6 @@ public class Property {
         this.homeProperty = homeProperty;
         this.host = host;
     }
-
-    public Property(){}
 
     public List<Reservation> getReservations() {
         return reservations;

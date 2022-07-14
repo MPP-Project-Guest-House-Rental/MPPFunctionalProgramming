@@ -13,7 +13,9 @@ public class FunctionUtil {
     static Function<Country, List<Host>> getHost = (cou) ->
             Stream.of(cou)
                     .flatMap(country -> country.getCities().stream())
+                    .peek(city -> System.out.println(city))
                     .flatMap(city -> city.getUsers().stream())
+                    .peek(user -> System.out.println(user))
                     .flatMap(user -> user.getRoles().stream())
                     .filter(role -> role instanceof Host)
                     .map(role -> (Host) role)
