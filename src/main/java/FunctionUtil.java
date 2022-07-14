@@ -1,7 +1,9 @@
 import Model.*;
 import Model.Enum.ReservationStatusEnum;
+import Model.Enum.Type;
 
 import java.time.Period;
+import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -159,5 +161,21 @@ public class FunctionUtil {
                     .map(e -> e.getKey().getName())
                     .limit(k)
                     .collect(Collectors.toList());
+
+    /** Get the most expensive Property by type In country **/
+    TriFunction<Country,Integer, Integer, List<Type>> mostExpensivePropertyByType = (country, k, year) ->
+            getHost.apply(country)
+                    .stream()
+                    .flatMap(host -> host.getProperties().stream())
+                    .collect(
+                            Collectors.groupingBy(
+                                    Property::getType,
+                                    Collectors.summingDouble(Property::getPricePerNight)
+                            ))
+                    .entrySet().stream()
+                    .sorted((p1,p2) -> p2.getValue().compareTo(p1.getValue()))
+                    .map(t -> t.getKey())
+                    .collect(Collectors.toList());
+
 
 }
