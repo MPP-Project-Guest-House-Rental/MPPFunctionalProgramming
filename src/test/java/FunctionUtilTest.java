@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 public class FunctionUtilTest {
@@ -21,11 +22,10 @@ public class FunctionUtilTest {
 
     City AddisAbaba,FairField,DC,London,Paris,Canada;
 
-    AppUser NatiH,DaveH,WondeH,MikyH,ZolaH,MerishH;
-    AppUser NahomG,DagiG,NehemiaG,DerwG,FiyoG,BetiG;
+
 
     @Before
-    public void setUp(){
+    public void setUp() {
         // create city
         AddisAbaba = TestFactory.createCity("AddisAbaba");
         FairField = TestFactory.createCity("FairField");
@@ -33,22 +33,13 @@ public class FunctionUtilTest {
         London = TestFactory.createCity("London");
         Paris = TestFactory.createCity("Paris");
         Canada = TestFactory.createCity("Canada");
+        cities = Arrays.asList(AddisAbaba, FairField, DC, London, Paris, Canada);
+
+
         //creat HostAppUser
-        NatiH=TestFactory.createHost("NatiH","Teshome");
-        DaveH=TestFactory.createHost("DaveH","Demelash");
-        WondeH=TestFactory.createHost("WondeH","Kebe");
-        MikyH=TestFactory.createHost("MikyH","Demeoz");
-        ZolaH=TestFactory.createHost("ZolaH","Belayneh");
-        MerishH=TestFactory.createHost("MerishH","Yonas");
+    }
 
-        //Creat GustAppUser
 
-        NahomG=TestFactory.createGuest("NahomG","Nahom");
-        DagiG=TestFactory.createGuest("DagiG","Henok");
-        NehemiaG=TestFactory.createGuest("NehemiaG","Wondeemu");
-        DerwG=TestFactory.createGuest("DerwG","Bereket");
-        FiyoG=TestFactory.createGuest("FiyoG","Belay");
-        BetiG=TestFactory.createGuest("BetiG","Solomon");
 
 
 
@@ -57,9 +48,6 @@ public class FunctionUtilTest {
 
         //
 
-
-
-    }
 
     @Test
     public void testFun1(){

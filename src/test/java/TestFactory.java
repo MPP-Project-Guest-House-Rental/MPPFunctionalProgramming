@@ -62,7 +62,7 @@ public class TestFactory {
         return payment;
     }
 
-    public static Property property(
+    public static Property creatProperty(
             String title,
             Double pricePerNight,
             Integer capacity
