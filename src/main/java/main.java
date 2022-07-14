@@ -254,18 +254,17 @@ static BiFunction<Country,Long, List<Long>> topKHostsWithHighestProperty = (coun
                 .map(key -> key.getKey())
                 .collect(Collectors.toList());
 
-// Wende number 15
     static TriFunction<Country, String,Long, List<String>> topKCitiesWithTheHighestNumberOfGuest = (coun, cit, k) ->
-        getGuest.apply(coun)
-                .stream()
-                .collect(Collectors.groupingBy(
-                        guest -> guest.getUser().getCity(), Collectors.counting()
-                ))
-                .entrySet().stream()
-                .sorted((e1,e2)->(int)(e2.getValue()-e1.getValue()))
-                .map(e -> e.getKey().getName())
-                .limit(k)
-                .collect(Collectors.toList());
+            getGuest.apply(coun)
+                    .stream()
+                    .collect(Collectors.groupingBy(
+                            guest -> guest.getUser().getCity(), Collectors.counting()
+                    ))
+                    .entrySet().stream()
+                    .sorted((e1,e2)->(int)(e2.getValue()-e1.getValue()))
+                    .map(e -> e.getKey().getName())
+                    .limit(k)
+                    .collect(Collectors.toList());
 
 
 
@@ -325,9 +324,6 @@ static BiFunction<Country,Long, List<Long>> topKHostsWithHighestProperty = (coun
                     .mapToInt(guest -> guest.getUser().getAge())
                     .summaryStatistics()
                     .getAverage();
-
-
-
 
 
 }
