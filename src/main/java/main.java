@@ -1,5 +1,6 @@
 
 import Model.*;
+import Model.Enum.Gender;
 import Model.Enum.ReservationStatusEnum;
 
 import java.time.LocalDate;
@@ -199,6 +200,14 @@ public class main {
                     .filter(reservation -> reservation.getReservationStatus().equals(ReservationStatusEnum.RESERVED))
                     .count();
 
+//Zelalem 1
+    static BiFunction<Country, Integer, Long> numberOfReservationCountInSpecificDate = (country, date) ->
+            getGuest.apply(country)
+                    .stream()
+                    .flatMap(res -> res.getReservations().stream())
+                    .filter(d -> d.getStartDate().getDayOfYear() == date)
+                    .count();
+
 
     static BiFunction<Country, String, Double> getCancelationRateByCity = (cou,cit) ->
             canceledReservationsCount.apply(cou, cit) * 1.0
@@ -267,6 +276,31 @@ static BiFunction<Country,Long, List<Long>> topKHostsWithHighestProperty = (coun
                     .limit(k)
                     .collect(Collectors.toList());
 
+    //Zelalem 3
+    static BiFunction<Country, Integer, Optional<Property>> highestPropertyReservedInYear = (country, year) ->
+            getGuest.apply(country)
+                    .stream()
+                    .flatMap(res -> res.getReservations().stream())
+                    .filter(d -> d.getStartDate().getDayOfYear() == year)
+                    .map(reservation -> reservation.getProperty())
+                    .collect(Collectors.groupingBy(
+                          property -> property,
+                            Collectors.counting()
+                    ))
+                    .entrySet().stream()
+                    .sorted((p1,p2) -> p2.getValue().compareTo(p1.getValue()))
+                    .map(prop -> prop.getKey())
+                    .findFirst();
+
+    //Zelalem 12
+    static BiFunction<Country, Integer, Map<Gender, Long>> highestPropertyReservedInGender = (country, date) ->
+            getGuest.apply(country)
+                    .stream()
+                    .collect(Collectors.groupingBy(
+                            guest -> guest.getUser().getGender(),
+                            Collectors.summingLong(guest -> guest.getReservations().stream().count())
+
+                    ));
 
 
     /**Helper Method Dave*/
